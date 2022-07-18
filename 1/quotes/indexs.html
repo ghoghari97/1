@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <title</title>
+</head>
+<body>
+    <div id="quotes"></div>
+    <div id="author"></div>
+    <button id="newq">new quotes</button>
+    <button id="tweet">tweet</button>
+
+    <!-- // css parts <div class="container">
+        <div class="inner">
+            <div class="box">
+                <p class="number">
+                </image src="twitter.png" alt="tweetme" title="tweetme" id="tweet">
+                </p>\
+                <div class="text">
+                    <i class="start quote fas fa-quote-left"></i>
+                </div>
+            </div>
+        </div>
+    </div>  // css parts -->
+
+    <script>
+        var quotes = document.getElementById("quotes");
+        var author = document.getElementById("author");
+        var newq = document.getElementById("newq");
+        var tweet = document.getElementById("tweet");
+        var realdata = "https://type.fit/api/quotes" ;
+        var quotesdata = "";
+
+        var tweets = () => {
+            // var tweetpost = "https://twitter.com/intent/tweet" ;
+            var tweetpost = `https://twitter.com/intent/tweet?text=${author.innerHTML}` ;
+            window.open(tweetpost);
+        } ;
+
+        var getnewquotes = () => { 
+            // console.log(realdata);
+            // console.log(realdata[rnum].author);
+        } ;
+        var  getquotes = async () => {
+            1// var api = "https://type.fit/api/quotes" ;
+            try {
+                2// var data = await fetch(api);
+                var data = await fetch("https://type.fit/api/quotes");
+                // console.log(data);
+                // console.log(data.json());
+                var realdata = await data.json();
+                getnewquotes();
+                var rnum = Math.floor(Math.random() * 1644) ;
+                console.log(rnum);
+                var quotesdata = realdata[rnum] ;
+                console.log(realdata[rnum]);
+                author.innerHTML = `${quotesdata.text}`;  // we are get text
+
+                quotes.innerHTML = `${quotesdata.author}`;  // we are get author
+
+                // if(quotes.author == null ){
+                //     quotes.innerHTML = "unKnown" ;
+                // }else{
+                //     quotes.innerHTML = `${quotesdata.author}`;
+                // };  // run but we can't understand 
+
+                // ( quotes.innerHTML == "null") ? ( quotes.innerHTML = "unKnown" ) : ( quotes.innerHTML = `${quotesdata.author}` ) ;
+
+                // console.log(quotesdata.author);
+                // // quotesdata == null ? ( author.innerText == unKnown ) : ( author.innerText == `${quotesdata.text}` );
+                // console.log(quotesdata.text);
+
+                // quotes.innerHTML = `${realdata[rnum].author}${realdata[rnum].text}`;
+                // console.log(rnum);
+                // console.log(realdata);
+                // console.log(realdata[0]);
+                // console.log(realdata[0].text);
+                // console.log(realdata[0].author);
+                // console.log(realdata.length);
+        } catch (error) {}
+        };
+        // var api = "https://type.fit/api/quotes" ;
+        newq.addEventListener("click",getquotes);
+        tweet.addEventListener("click",tweets);
+        getquotes();
+    </script>
+</body>
+</html>
+
+This project we are many change so please carr fully///////////////////////////////////////////////////////////

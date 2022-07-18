@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div id="quotes"></div>
+    <button>new quotes</button>
+
+    <script>
+
+        var e = () => {
+            var f = Math.floor (Math.random() * 1000 );
+
+            console.log(f);
+            console.log(d[f].text);
+            console.log(d[f].author);
+        };
+
+        var a = async () => {
+            var b = "https://type.fit/api/quotes" ;
+            try{
+                var c = await fetch(b);
+                var d = await c.json();
+                // console.log(c.json());
+
+                // console.log(d);
+                // console.log(d[0]);
+                // console.log(d[0].text);
+                // console.log(d[0].author);
+                e();
+            } catch (error) {}
+        };
+
+        a();
+        // var a = "https://type.fit/api/quotes" ;
+    </script>
+</body>
+</html>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div id="quotes"></div>
+    <div id="author"></div>
+    <button>new quotes</button>
+
+    <script>
+
+        var quotes = document.getElementById("quotes");
+        var author = document.getElementById("author");
+        var realdata = "";
+
+        var getnewquotes = () => {
+            var f = Math.floor (Math.random() * 1643 );
+            console.log(f);
+            console.log(realdata[f].text);
+            console.log(realdata[f].author);
+            quotes.innerHTML = `${realdata[f].text}`;
+            author.innerHTML = `${realdata[f].author}`;
+        };
+
+        var getquotes = async () => {
+            var api = "https://type.fit/api/quotes" ;
+            try{
+                var data = await fetch(api);
+                var realdata = await data.json();
+                getnewquotes();
+            } catch (error) {}
+        };
+        getquotes();
+    </script>
+</body>
+</html> -->
